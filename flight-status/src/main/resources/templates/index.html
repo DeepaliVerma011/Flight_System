@@ -6,14 +6,15 @@
         /* General Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: url('/onland.jpg') no-repeat center fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url("src/main/resources/static/images/img.jpg");
+
 
 }
 
@@ -50,7 +51,7 @@ th, td {
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #00008B;
     color: white;
 }
 
@@ -82,7 +83,7 @@ button {
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #4CAF50;
+    background-color:#00008B;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -91,12 +92,13 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #000080;
 }
 
 /* Link Styling */
 a {
-    color: #007BFF;
+    background-color: #000080;
+    color: white;
     text-decoration: none;
     display: block;
     margin-top: 20px;
@@ -105,19 +107,23 @@ a {
 
 a:hover {
     text-decoration: underline;
+     color: white;
+
 }
 
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>Flight Status</h1>
+    <h1><u>FLIGHT STATUS</u></h1>
     <table>
         <thead>
         <tr>
             <th>Flight Number</th>
             <th>Status</th>
             <th>Gate</th>
+            <th>Arrival Time</th>
+            <th>Departure Time</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -126,7 +132,10 @@ a:hover {
             <td th:text="${flight.number}"></td>
             <td th:text="${flight.status}"></td>
             <td th:text="${flight.gate}"></td>
+            <td th:text="${flight.arrivalTime}">Arrival Time</td>
+            <td th:text="${flight.departureTime}">Departure Time</td>
             <td>
+                <a th:href="@{/update-flight(id=${flight.id})}">Update</a>
                 <a th:href="@{/delete(id=${flight.id})}">Delete</a>
             </td>
         </tr>

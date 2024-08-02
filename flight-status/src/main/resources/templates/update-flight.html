@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Update Flight</title>
+    <style>
+        /* Add your CSS here or include a link to your stylesheet */
+        body {
+             background: url('/onland.jpg') no-repeat center fixed;
+             background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin: 0 0 20px 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00008B;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #000080;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1><u>UPDATE FLIGHT</u></h1>
+    <form action="/update" method="post">
+        <input type="hidden" name="id" th:value="${flight.id}">
+        <input type="text" name="number" th:value="${flight.number}" placeholder="Flight Number" required>
+        <input type="text" name="status" th:value="${flight.status}" placeholder="Status" required>
+        <input type="text" name="gate" th:value="${flight.gate}" placeholder="Gate" required>
+        <input type="text" name="arrivalTime" th:value="${flight.arrivalTime}" placeholder="Arrival Time" required>
+        <input type="text" name="departureTime" th:value="${flight.departureTime}" placeholder="Departure Time" required>
+        <button type="submit">Update Flight</button>
+    </form>
+
+</div>
+</body>
+</html>

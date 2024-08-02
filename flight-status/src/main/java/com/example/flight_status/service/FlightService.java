@@ -1,5 +1,7 @@
-package com.example.flight_status;
+package com.example.flight_status.service;
 
+import com.example.flight_status.model.Flight;
+import com.example.flight_status.repository.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
